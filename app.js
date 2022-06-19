@@ -28,7 +28,7 @@ const userRoutes = require("./routes/user");
 
 // app.use("/api", authRoutes);
 app.use("/api", userRoutes);
-
+    
 const port = 8007;
 
 app.listen(port, () => {
