@@ -2,7 +2,9 @@ const mongoose = require("mongoose");
 
 const voterWorkSchema = new mongoose.Schema(
   {
-    
+    user_type:{
+      type:String
+    },
     name: {
       type: String,
       trim: true,
@@ -126,7 +128,14 @@ const voterWorkSchema = new mongoose.Schema(
       type: String,
       trim: true,
     },
-
+    account_type: {
+      type: String,
+      trim: true,
+    },
+   ref_id:{
+    type: String,
+    trim: true,
+   }
 
   },
   { timestamps: true }

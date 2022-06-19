@@ -19,7 +19,9 @@ app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(expressValidator()); 
 app.use(cors());
-
+app.get('/', (req, res) => {
+  res.send('Hello from Node.js!')
+})
 
 // import routes
 const userRoutes = require("./routes/user");

@@ -52,12 +52,14 @@ module.exports = ({ User, authHelper }) => {
     occupation,
     martial_status,
     relation,
+    account_type,
+    ref_id,
 
     res
   ) {
     const user = new User({
       name,
-      password,
+      password, 
       mobile,
       whatsapp,
       same,
@@ -83,6 +85,8 @@ module.exports = ({ User, authHelper }) => {
       occupation,
       martial_status,
       relation,
+      account_type,
+      ref_id,
   
       res
     });
@@ -97,9 +101,6 @@ module.exports = ({ User, authHelper }) => {
       }
 
     
-
-
-
 
 
 
@@ -143,6 +144,9 @@ module.exports = ({ User, authHelper }) => {
     occupation,
     martial_status,
     relation,
+    account_type,
+    ref_id,
+
     res
 
   ) => {
@@ -185,6 +189,9 @@ module.exports = ({ User, authHelper }) => {
         occupation,
         martial_status,
         relation,
+        account_type,
+       ref_id,
+
         res
     
       );

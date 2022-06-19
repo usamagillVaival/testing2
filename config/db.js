@@ -4,6 +4,7 @@ require("dotenv").config();
 
 const connectDB = async () => {
   try {
+    console.log('calling')
 
     // mongodb+srv://usamaVaival:<password>@cluster0.saaqadd.mongodb.net/?retryWrites=true&w=majority
 
@@ -17,6 +18,7 @@ const connectDB = async () => {
       useFindAndModify: false,
       useUnifiedTopology: true,
     });
+
     console.log("MongoDB Connected....");
   } catch (err) {
     console.error('err',err.message); 
