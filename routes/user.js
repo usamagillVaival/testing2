@@ -7,7 +7,8 @@ const {
   getVotersByMobile,
   login,
   getAllKarkun,
-  getStat
+  getStat,
+  getUserStat
 } = require("../controllers/user");
 
 let gfs;
@@ -22,7 +23,8 @@ router.post("/users/createAccount", createAccount);
 router.get("/users/getVoters", getVoters);
 router.post("/users/getVotersByMobile", getVotersByMobile);
 router.get("/users/getAllKarkun", getAllKarkun);
-router.get("/users/getStat", getStat);
+router.get("/users/getStats", getStat);
+router.post("/users/getUserStats", getUserStat);
 
 
 router.post("/users/login", login);
