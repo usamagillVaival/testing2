@@ -73,6 +73,39 @@ exports.getVotersByMobile  = async (req, res) => {
   }
 };
 
+
+exports.getAllKarkun  = async (req, res) => {
+  try {
+    const { mobile} =   req.body
+    res.header( "Access-Control-Allow-Origin" );
+
+    const userDetails = await Voter.find({
+      // ref_id : mobile
+      //  mobile:mobile,
+       account_type:'user'
+      // account_type: "gallery",
+      // invitation_status: payload.invitation_status,
+      // gallery_signup_step: payload.gallery_signup_step,
+      // pause_status:payload.pause_status
+      // approved: true,
+    })
+      // .populate("artist_artwork")
+      .lean();
+    if (userDetails) {
+      return res.status(200).json({
+        data: userDetails,
+      });
+    } else {
+      throw "Voter not found";
+    }
+
+    // throw "User not found";
+  } catch (ex) {
+    throw "Voter not found";
+  }
+};
+
+
 exports.login  = async (req, res) => {
   try {
     const { mobile,password} =   req.body
