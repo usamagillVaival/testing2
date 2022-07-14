@@ -1,5 +1,8 @@
 const { user: userService } = require("../service");
 const Voter = require('../models/voter')
+const Data = require('../models/data')
+const mongoose = require("mongoose");
+// mongoose.
 
 
 
@@ -70,6 +73,68 @@ exports.getVotersByMobile  = async (req, res) => {
     // throw "User not found";
   } catch (ex) {
     throw "Voter not found";
+  }
+};
+
+
+
+exports.addV  = async (req, res) => {
+  const { City} =   req.body
+
+  const user = new Data({
+ 
+  
+});
+await user.save(async(err, user) => {
+
+  if (err) {
+    console.log(err);
+    return res.status(400).json({
+      // error: errorHandler(err)
+      error: err.message,
+    });
+  }
+
+
+
+
+
+  return res.status(200).json({
+    message: "created",
+    success:true,
+    data:user
+    // token: user.confirmationCode,
+    //  user:user
+  });
+});
+
+}
+exports.getVotersByCnic  = async (req, res) => {
+  try {
+    const { cnic} =   req.body
+    // console.log(cnic)
+    res.header( "Access-Control-Allow-Origin" );
+
+    const userDetails = await Data.findOne({
+     'CNIC #' :cnic
+    })
+      // .populate("artist_artwork")
+      .lean();
+    if (userDetails) {
+      return res.status(200).json({
+        data: userDetails,
+      });
+    } else {
+      return res.status(200).json({
+        error: "No Voter Found",
+      });
+    }
+
+    // throw "User not found";
+  } catch (ex) {
+    return res.status(200).json({
+      error: "No Voter Found",
+    });
   }
 };
 
